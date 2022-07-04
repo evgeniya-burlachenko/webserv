@@ -14,11 +14,19 @@ int main(int argc, char *argv[])
     bind(socket_fd, (struct sockaddr *)&socket_address, addr_len);
 
     listen(socket_fd, 1);
+    char buff[10];
 
     while(1) 
-    { 
+    {
+        
         int socket_new = accept(socket_fd, (struct sockaddr *)&socket_address, (socklen_t *)&addr_len);
         std::cout << socket_new << std::endl;
+
+        char buff[10];
+        int res = recv(socket_new, buff, 10, 0);
+        printf("%s\n %d\n %s\n", buff, res, strerror(errno));
+
+
         close(socket_new);
     }
 
