@@ -10,3 +10,4 @@
 
 #define PORT 8080
 #define LOOPBACK "127.0.0.1"
+#define BUFF_SZIE 4096
